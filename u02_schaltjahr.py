@@ -11,9 +11,23 @@ Schaltjahre: 2020, 2016, 2000, 1600
 Keine Schaltjahre: 2019, 2018, 1900, 1800
 """
 
+# Datentyp: input erkennt den Datentyp basierend auf
+# der Eingabe im Gegensatz zu raw_input() (Immer String)
+# deswegen ist der int cast eigentlich überflüssig.
+jahr = int(input('Jahr? '))
 
-def test_func(x):
-    return x(3)
+if jahr % 4 != 0:
+    print('Kein Schaltjahr')
+elif jahr % 100 == 0 and jahr % 400 != 0:
+    print('Kein Schaltjahr')
+else:
+    print('Schaltjahr')
 
-
-print(test_func(lambda x: x + 3))
+# Nicht so schön
+if jahr % 4 == 0:
+    if jahr % 100 == 0 and jahr % 400 != 0:
+        print('Kein Schaltjahr')
+    else:
+        print('Schaltjahr')
+else:
+    print('Kein Schaltjahr')
